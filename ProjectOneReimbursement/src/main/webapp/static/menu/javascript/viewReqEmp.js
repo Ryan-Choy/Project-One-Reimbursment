@@ -64,6 +64,7 @@ function viewRes() {
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.setRequestHeader("User", token);
 	xhr.setRequestHeader("empId", eId);
+	
 	xhr.send();
 }
 document.getElementById("back").addEventListener("click", back);

@@ -19,7 +19,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 
 		List<Reimbursement> empList = new ArrayList<>();
 
-		String sql = "SELECT * FROM ers.ers_reimbursement WHERE ers_users_id = ? AND reimb_status_id = 2 OR reimb_status_id = 3 ORDER BY reimb_resolved";
+		String sql = "SELECT * FROM ers.ers_reimbursement WHERE ers_users_id = ? AND (reimb_status_id = 2 OR reimb_status_id = 3) ORDER BY reimb_resolved";
 
 		try {
 			PreparedStatement ps = DatabaseConnect.getConnection().prepareStatement(sql);
@@ -196,7 +196,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 		// manager view pending requests from a single employee
 		List<Reimbursement> empReq = new ArrayList<>();
 
-		String sql = "SELECT * FROM ers.ers_reimbursement WHERE ers_users_id = ? AND reimb_status_id = 1 ORDER BY reimb_id";
+		String sql = "SELECT * FROM ers.ers_reimbursement WHERE ers_users_id = ? ORDER BY reimb_id";
 
 		try {
 			PreparedStatement ps = DatabaseConnect.getConnection().prepareStatement(sql);
