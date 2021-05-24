@@ -231,13 +231,14 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	@Override
 	public boolean updateReimbursementRequest(int update, Integer reimbId, Integer managId) {
 		
-		String sql = "UPDATE ers.ers_reimbursement SET reimb_status_id = ? WHERE reimb_id = ?";
+		String sql = "UPDATE ers.ers_reimbursement SET (reimb_status_id, reimb_resolver) = (?,?) WHERE reimb_id = ?";
 		
 		try {
 			PreparedStatement ps = DatabaseConnect.getConnection().prepareStatement(sql);
 			
 			ps.setInt(1, update);
-			ps.setInt(2, reimbId);
+			ps.setInt(2, managId);
+			ps.setInt(3, reimbId);
 			
 			int res = ps.executeUpdate();
 			if(ps.executeUpdate()>= 1) {

@@ -59,7 +59,17 @@ document.getElementById("back").addEventListener("click", back);
 function resolveReim(){
 	let reimId = document.getElementById("reimId").value;
 	let action = document.getElementById("action").value;
-
+	
+	let type = " ";
+	switch(action){
+		case"1":
+		type = "2";
+		break;
+		case"2":
+		type = "3";
+	}
+	
+	
 	let token = sessionStorage.getItem("token")
 	
 	let xhr = new XMLHttpRequest();
@@ -79,7 +89,7 @@ function resolveReim(){
 
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.setRequestHeader("User",token);
-	let requestBody = `reimId=${reimId}&action=${action}`;
+	let requestBody = `reimId=${reimId}&type=${type}`;
 	xhr.send(requestBody);
 }
 

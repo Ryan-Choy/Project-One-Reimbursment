@@ -107,20 +107,9 @@ public class ManagerDelegate  {
 		
 		
 		int rId = Integer.parseInt(request.getParameter("reimId"));
-		String yn = request.getParameter("action");
-		int statusId = 0;
 		
-		switch (yn) {
-		case "Approve":
-			statusId = 2;
-			break;
-		case "Deny":
-			statusId = 3;
-			break;
-
-		default:
-			break;
-		}
+		int statusId = Integer.parseInt(request.getParameter("type"));
+		
 		
 		boolean success = rd.updateReimbursementRequest(statusId, rId,mId);
 		
