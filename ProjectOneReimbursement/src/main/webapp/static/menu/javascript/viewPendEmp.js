@@ -11,9 +11,15 @@ function viewPend(){
 			let pendList = xhr.getResponseHeader("pendingList");
 			let pendJSON = JSON.parse(pendList);
 			
-			let reimtype = "";
+		
 			
-			switch(Number(pendJSON.typeId)){
+
+			
+			let content = document.getElementById("pendList")
+			
+			for(i = 0; i < pendJSON.length; i++){
+					let reimtype = "";
+				switch(Number(pendJSON[i].typeId)){
 				case 1:
 				reimtype = "Lodging";
 				
@@ -31,10 +37,6 @@ function viewPend(){
 				break;
 				
 			}
-			
-			let content = document.getElementById("pendList")
-			
-			for(i = 0; i < pendJSON.length; i++){
 				let request ="<td>" + pendJSON[i].reimbId + "</td><td>" + pendJSON[i].amount + "</td><td>" + new Date(pendJSON[i].dateSubmitted).toString()  + "</td><td>" + pendJSON[i].description + "</td><td>" + pendJSON[i].author + "</td><td>" + reimtype + "</td>";
 				content.insertAdjacentHTML('beforeend',request);
 			}

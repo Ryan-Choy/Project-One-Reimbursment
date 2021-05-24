@@ -105,9 +105,10 @@ public class ManagerDelegate  {
 	//approve or deny requests
 	public void updateReim(HttpServletRequest request, HttpServletResponse response) {
 		
+		
 		int rId = Integer.parseInt(request.getParameter("reimId"));
 		String yn = request.getParameter("action");
-		int statusId = 2;
+		int statusId = 0;
 		
 		switch (yn) {
 		case "Approve":

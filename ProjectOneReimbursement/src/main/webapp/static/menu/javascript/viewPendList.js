@@ -58,8 +58,8 @@ document.getElementById("back").addEventListener("click", back);
 
 function resolveReim(){
 	let reimId = document.getElementById("reimId").value;
-	let action = document.getElementById("resolve").value;
-	console.log(action);
+	let action = document.getElementById("action").value;
+
 	let token = sessionStorage.getItem("token")
 	
 	let xhr = new XMLHttpRequest();
