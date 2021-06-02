@@ -1,4 +1,4 @@
-# PROJECT NAME
+# Employee Expense Reimbursement System
 
 ## Project Description
 
